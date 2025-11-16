@@ -1,0 +1,33 @@
+{
+  "GuestHeader": {
+    "Home": "Home",
+    "Blog": "Blog",
+    "SignIn": "SignIn",
+    "SignUp": "SignUp",
+    "Pricing": "Pricing"
+  },
+
+  "GuestFooter": {
+    "Description": "Ship your startup in days, not weeks",
+    "BottomText": "Powered by Founderflow",
+    "Links": {
+      "Title": "Links",
+      "Login": "Login",
+      "Pricing": "Pricing",
+      "Support": "Support",
+      "Documentation": "Documentation"
+    },
+    "Legal": {
+      "Title": "Legal",
+      "Terms of Services": "Terms of services",
+      "Privacy Policy": "Privacy Policy"
+    },
+    "More": {
+      "Title": "More",
+      "Login": "Login",
+      "Pricing": "Pricing",
+      "Support": "Support",
+      "Documentation": "Documentation"
+    }
+  }
+}

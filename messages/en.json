@@ -1,0 +1,34 @@
+{
+  "GuestHeader": {
+    "signIn": "Sign In",
+    "signUp": "Sign Up",
+    "getStarted": "Get Started"
+  },
+  "GuestFooter": {
+    "product": {
+      "title": "Product",
+      "features": "Features",
+      "pricing": "Pricing",
+      "documentation": "Documentation"
+    },
+    "company": {
+      "title": "Company",
+      "about": "About",
+      "blog": "Blog",
+      "careers": "Careers",
+      "contact": "Contact"
+    },
+    "legal": {
+      "title": "Legal",
+      "privacy": "Privacy",
+      "terms": "Terms",
+      "cookies": "Cookies"
+    },
+    "social": {
+      "title": "Social",
+      "twitter": "Twitter",
+      "github": "GitHub",
+      "linkedin": "LinkedIn"
+    }
+  }
+}

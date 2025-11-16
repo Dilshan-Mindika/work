@@ -1,0 +1,448 @@
+/* This file contains global CSS styles and theme configurations */
+
+/* Import required Tailwind CSS and its animation plugin */
+@import "tailwindcss";
+@plugin "tailwindcss-animate";
+
+/* Configure dark mode variant using custom selector */
+@custom-variant dark (&:is(.dark *));
+
+/* Set default font families using theme variables */
+@theme {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #0f172a;
+
+  --card: #ffffff;
+  --card-foreground: #0f172a;
+
+  --popover: #ffffff;
+  --popover-foreground: #0f172a;
+
+  --primary: #015064; /* Main Primary */
+  --primary-foreground: #ffffff;
+
+  --secondary: #1e293b;
+  --secondary-foreground: #ffffff;
+
+  --muted: #f8fafc;
+  --muted-foreground: #64748b;
+
+  --accent: #027d94; /* Brighter variant of primary */
+  --accent-foreground: #ffffff;
+
+  --destructive: #dc2626;
+  --destructive-foreground: #ffffff;
+
+  --border: #e2e8f0;
+  --input: #e2e8f0;
+  --ring: #015064;
+
+  --success: #16a34a;
+  --success-foreground: #ffffff;
+
+  --warning: #ca8a04;
+  --warning-foreground: #ffffff;
+
+  --info: #0891b2;
+  --info-foreground: #ffffff;
+
+  /* Chart palette based on primary variants */
+  --chart-1: #015064; /* Main */
+  --chart-2: #027d94; /* Lighter blue */
+  --chart-3: #03a9c6; /* Bright cyan */
+  --chart-4: #5dd5e0; /* Aqua */
+  --chart-5: #c4f1f9; /* Lightest */
+  
+  --radius: 0.75rem;
+}
+
+.dark {
+  --background: #121314;
+  --foreground: #f8fafc;
+
+  --card: #181819;
+  --card-foreground: #f8fafc;
+
+  --popover: #0d0d0e;
+  --popover-foreground: #f8fafc;
+
+  --primary: #03a9c6; /* Brighter teal for dark mode */
+  --primary-foreground: #ffffff;
+
+  --secondary: #f8fafc;
+  --secondary-foreground: #0f172a;
+
+  --muted: #334155;
+  --muted-foreground: #94a3b8;
+
+  --accent: #027d94;
+  --accent-foreground: #ffffff;
+
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+
+  --border: #334155;
+  --input: #334155;
+  --ring: #03a9c6;
+
+  --success: #22c55e;
+  --success-foreground: #ffffff;
+
+  --warning: #eab308;
+  --warning-foreground: #ffffff;
+
+  --info: #06b6d4;
+  --info-foreground: #ffffff;
+
+  /* Chart variants for dark mode */
+  --chart-1: #03a9c6;
+  --chart-2: #06b6d4;
+  --chart-3: #22d3ee;
+  --chart-4: #67e8f9;
+  --chart-5: #cffafe;
+
+  --radius: 0.75rem;
+}
+
+
+/* Map CSS variables to semantic theme properties */
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-info: var(--info);
+  --color-info-foreground: var(--info-foreground);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  /* Calculate different border radius sizes based on base radius */
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+/* Base styles applied to all elements */
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground selection:bg-primary/20 selection:text-primary;
+    font-feature-settings:
+      "rlig" 1,
+      "calt" 1;
+  }
+}
+
+/* Interactive element styles */
+a,
+button {
+  @apply cursor-pointer hover:opacity-90 transition-all duration-200;
+}
+
+/* Enhanced button styles with orange theme */
+.btn-primary {
+  @apply bg-primary text-primary-foreground hover:bg-primary/90 focus:ring-2 focus:ring-primary/20 transition-all duration-200;
+}
+
+.btn-secondary {
+  @apply bg-secondary text-secondary-foreground hover:bg-secondary/90 focus:ring-2 focus:ring-secondary/20 transition-all duration-200;
+}
+
+.btn-accent {
+  @apply bg-accent text-accent-foreground hover:bg-accent/90 focus:ring-2 focus:ring-accent/20 transition-all duration-200;
+}
+
+/* Custom styles for Clerk authentication components */
+.cl-formButtonPrimary {
+  @apply bg-primary hover:bg-primary/90 focus:ring-2 focus:ring-primary/20 transition-all duration-200;
+}
+
+.cl-card,
+.cl-scrollBox {
+  @apply bg-background text-foreground shadow-lg border border-border;
+}
+
+.cl-cardBox {
+  @apply bg-background rounded-lg border border-border;
+}
+
+/* Custom orange gradient backgrounds */
+.gradient-orange {
+  background: linear-gradient(135deg, #ea580c 0%, #f97316 50%, #fb923c 100%);
+}
+
+.gradient-orange-subtle {
+  background: linear-gradient(135deg, #fed7aa 0%, #ffedd5 50%, #fff7ed 100%);
+}
+
+.dark .gradient-orange-subtle {
+  background: linear-gradient(135deg, #7c2d12 0%, #9a3412 50%, #c2410c 100%);
+}
+
+/* Custom orange focus styles */
+.focus-orange:focus {
+  @apply ring-2 ring-primary/20 border-primary;
+}
+
+/* Custom orange hover effects */
+.hover-orange:hover {
+  @apply bg-primary/10 border-primary/20;
+}
+
+/* Custom orange text gradients */
+.text-gradient-orange {
+  background: linear-gradient(135deg, #ea580c 0%, #f97316 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Custom animations for enhanced hero effects */
+@keyframes gradient-x {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes gradient-x-reverse {
+  0%,
+  100% {
+    background-position: 100% 50%;
+  }
+  50% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(59, 130, 246, 0.6);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes rotate-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes scale-bounce {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in-scale {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Utility classes for animations */
+.animate-gradient-x {
+  background-size: 200% 200%;
+  animation: gradient-x 3s ease infinite;
+}
+
+.animate-gradient-x-reverse {
+  background-size: 200% 200%;
+  animation: gradient-x-reverse 3s ease infinite;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.animate-shimmer {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+.animate-rotate-slow {
+  animation: rotate-slow 20s linear infinite;
+}
+
+.animate-scale-bounce {
+  animation: scale-bounce 2s ease-in-out infinite;
+}
+
+.animate-slide-up {
+  animation: slide-up 0.6s ease-out;
+}
+
+.animate-fade-in-scale {
+  animation: fade-in-scale 0.8s ease-out;
+}
+
+/* Glassmorphism effects */
+.glass {
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.glass-dark {
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  background: rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Enhanced button effects */
+.btn-glow {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-glow::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: left 0.5s;
+}
+
+.btn-glow:hover::before {
+  left: 100%;
+}
+
+/* Particle effects */
+.particle {
+  position: absolute;
+  pointer-events: none;
+  opacity: 0.6;
+  animation: float 4s ease-in-out infinite;
+}
+
+/* 3D transform utilities */
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.rotate-3d {
+  transform: perspective(1000px) rotateX(var(--rotate-x, 0deg))
+    rotateY(var(--rotate-y, 0deg));
+}
+
+/* Enhanced text effects */
+.text-glow {
+  text-shadow: 0 0 20px currentColor;
+}
+
+.text-glow-primary {
+  text-shadow: 0 0 20px hsl(var(--primary));
+}
+
+.text-glow-secondary {
+  text-shadow: 0 0 20px hsl(var(--secondary));
+}
+
+/* Responsive design utilities */
+@media (max-width: 768px) {
+  .animate-gradient-x,
+  .animate-gradient-x-reverse {
+    animation-duration: 4s;
+  }
+
+  .animate-float {
+    animation-duration: 8s;
+  }
+}
